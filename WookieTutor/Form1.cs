@@ -18,10 +18,22 @@ namespace WookieTutor
         float maxPoints = 0;
         List<int> leftToDraw;
         int counter = 1;
+        System.Timers.Timer runonce = new System.Timers.Timer(2000);
 
         public Form1()
         {
             InitializeComponent();
+
+            runonce.Elapsed += (s, et) => { temp(); };
+            runonce.AutoReset = false;
+        }
+
+        private void temp()
+        {
+            pictureBox2.BackgroundImage = global::WookieTutor.Properties.Resources.wookie_normal;
+            comment_label.Text = "lol";
+            comment_label.Refresh();
+            pictureBox2.Refresh();
         }
 
         private int drawQuestionSet()
@@ -129,9 +141,14 @@ namespace WookieTutor
                 }
                 else
                 {
+                    /// Change pic
                     pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
                     pictureBox2.BackgroundImage = global::WookieTutor.Properties.Resources.confusedchew;
                     pictureBox2.Refresh();
+                    comment_label.Text = "What the rRrrRrrR, man?";
+                    /// Change it back
+                    runonce.Start();
+                    /// end 
 
                     result_text.Text = String.Format("Wrong. The right answer for question \"{0}\" is {1}",
                         String.Format(prompts[answerId], data[questionSetId].ToArray()),

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.footer = new System.Windows.Forms.Label();
             this.loadFile = new System.Windows.Forms.OpenFileDialog();
             this.answer_butt = new System.Windows.Forms.Button();
@@ -40,6 +39,7 @@
             this.load_butt = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.comment_label = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.replay_butt = new System.Windows.Forms.Button();
             this.goback_butt = new System.Windows.Forms.Button();
@@ -183,6 +183,7 @@
             // tabPage2
             // 
             this.tabPage2.BackgroundImage = global::WookieTutor.Properties.Resources.star_space_tile;
+            this.tabPage2.Controls.Add(this.comment_label);
             this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Controls.Add(this.replay_butt);
             this.tabPage2.Controls.Add(this.goback_butt);
@@ -199,6 +200,17 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // comment_label
+            // 
+            this.comment_label.AutoSize = true;
+            this.comment_label.Font = new System.Drawing.Font("Lucida Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.comment_label.ForeColor = System.Drawing.Color.Yellow;
+            this.comment_label.Location = new System.Drawing.Point(258, 154);
+            this.comment_label.Name = "comment_label";
+            this.comment_label.Size = new System.Drawing.Size(155, 15);
+            this.comment_label.TabIndex = 9;
+            this.comment_label.Text = "What the rRrrRrrR, man?";
             // 
             // pictureBox2
             // 
@@ -310,7 +322,6 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.footer);
             this.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Wookie Tutor 2016";
             this.tabControl1.ResumeLayout(false);
@@ -346,6 +357,7 @@
         private System.Windows.Forms.RichTextBox question_text;
         private System.Windows.Forms.Button replay_butt;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label comment_label;
     }
 }
 
