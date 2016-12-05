@@ -39,7 +39,7 @@
             this.load_butt = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.comment_label = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.replay_butt = new System.Windows.Forms.Button();
             this.goback_butt = new System.Windows.Forms.Button();
@@ -183,7 +183,7 @@
             // tabPage2
             // 
             this.tabPage2.BackgroundImage = global::WookieTutor.Properties.Resources.star_space_tile;
-            this.tabPage2.Controls.Add(this.comment_label);
+            this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Controls.Add(this.replay_butt);
             this.tabPage2.Controls.Add(this.goback_butt);
@@ -201,25 +201,28 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // comment_label
+            // textBox1
             // 
-            this.comment_label.AutoSize = true;
-            this.comment_label.Font = new System.Drawing.Font("Lucida Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.comment_label.ForeColor = System.Drawing.Color.Yellow;
-            this.comment_label.Location = new System.Drawing.Point(258, 154);
-            this.comment_label.Name = "comment_label";
-            this.comment_label.Size = new System.Drawing.Size(155, 15);
-            this.comment_label.TabIndex = 9;
-            this.comment_label.Text = "What the rRrrRrrR, man?";
+            this.textBox1.BackColor = System.Drawing.Color.Black;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Lucida Sans", 10F);
+            this.textBox1.ForeColor = System.Drawing.Color.Yellow;
+            this.textBox1.Location = new System.Drawing.Point(247, 161);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(165, 16);
+            this.textBox1.TabIndex = 10;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImage = global::WookieTutor.Properties.Resources.wookie_normal;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(230, 0);
+            this.pictureBox2.Location = new System.Drawing.Point(247, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(203, 161);
+            this.pictureBox2.Size = new System.Drawing.Size(165, 161);
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
@@ -278,7 +281,7 @@
             // result_text
             // 
             this.result_text.BackColor = System.Drawing.Color.Black;
-            this.result_text.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.result_text.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.result_text.ForeColor = System.Drawing.Color.Yellow;
             this.result_text.Location = new System.Drawing.Point(26, 304);
             this.result_text.Name = "result_text";
@@ -291,7 +294,7 @@
             // question_text
             // 
             this.question_text.BackColor = System.Drawing.Color.Black;
-            this.question_text.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.question_text.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.question_text.ForeColor = System.Drawing.Color.Yellow;
             this.question_text.Location = new System.Drawing.Point(26, 182);
             this.question_text.Name = "question_text";
@@ -356,8 +359,8 @@
         private System.Windows.Forms.RichTextBox result_text;
         private System.Windows.Forms.RichTextBox question_text;
         private System.Windows.Forms.Button replay_butt;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label comment_label;
     }
 }
 

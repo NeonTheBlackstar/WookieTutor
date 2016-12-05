@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 
 namespace WookieTutor
 {
@@ -18,22 +19,26 @@ namespace WookieTutor
         float maxPoints = 0;
         List<int> leftToDraw;
         int counter = 1;
-        System.Timers.Timer runonce = new System.Timers.Timer(2000);
+        System.Windows.Forms.Timer runonce = new System.Windows.Forms.Timer();
+        // Sounds //
+        SoundPlayer wookieBad = new SoundPlayer(WookieTutor.Properties.Resources.wookie_bad);
+        SoundPlayer wookieGood = new SoundPlayer(WookieTutor.Properties.Resources.wookie_good);
 
         public Form1()
         {
             InitializeComponent();
 
-            runonce.Elapsed += (s, et) => { temp(); };
-            runonce.AutoReset = false;
+            runonce.Interval = 2500;
+            runonce.Tick += (sender, args) => { temp(); };
+            //runonce.AutoReset = false;
         }
 
         private void temp()
         {
             pictureBox2.BackgroundImage = global::WookieTutor.Properties.Resources.wookie_normal;
-            comment_label.Text = "lol";
-            comment_label.Refresh();
             pictureBox2.Refresh();
+            textBox1.Text = String.Empty;
+            runonce.Stop();
         }
 
         private int drawQuestionSet()
@@ -130,12 +135,21 @@ namespace WookieTutor
         private void answer_butt_Click(object sender, EventArgs e)
         {
             string answer = answer_text.Text;
+            runonce.Stop();
+            wookieBad.Stop();
 
-            if(answer != String.Empty)
+            if (answer != String.Empty)
             {
                 // Check if the answer is good
                 if (answer == data[questionSetId][answerId])
                 {
+                    pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+                    pictureBox2.BackgroundImage = global::WookieTutor.Properties.Resources.wookie_good_pic;
+                    pictureBox2.Refresh();
+                    textBox1.Text = "BrrRRrRRRrravo!";
+
+                    wookieGood.Play();
+
                     result_text.Text = "Good. Have a cookie.";
                     gainedPoints += 1;
                 }
@@ -145,15 +159,17 @@ namespace WookieTutor
                     pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
                     pictureBox2.BackgroundImage = global::WookieTutor.Properties.Resources.confusedchew;
                     pictureBox2.Refresh();
-                    comment_label.Text = "What the rRrrRrrR, man?";
-                    /// Change it back
-                    runonce.Start();
-                    /// end 
+                    textBox1.Text = "What the rRrrRrrR, man?";
+
+                    wookieBad.Play();
 
                     result_text.Text = String.Format("Wrong. The right answer for question \"{0}\" is {1}",
                         String.Format(prompts[answerId], data[questionSetId].ToArray()),
                         data[questionSetId][answerId]);
                 }
+                /// Change it back
+                runonce.Start();
+                /// end 
 
                 answerId += 1;
                 if (leftToDraw.Count != 0 || prompts.ContainsKey(answerId))
@@ -212,6 +228,11 @@ namespace WookieTutor
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

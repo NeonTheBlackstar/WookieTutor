@@ -96,7 +96,12 @@
     <None Include="Resources\wookie-normal.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\wookie_good.wav" />
+    <None Include="Resources\wookie_good_pic.png" />
+    <None Include="Resources\wookie_bad.wav" />
+    <None Include="Resources\wookie_temp.wav" />
     <None Include="Resources\confusedchew.jpg" />
+    <None Include="Resources\goodchewy.bmp" />
     <Content Include="Resources\Image1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
